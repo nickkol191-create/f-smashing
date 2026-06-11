@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>F* Smashing | Smash Burgers στον Χολαργό, Αθήνα</title>
+  <meta name="description" content="Χειροποίητα smash burgers με 100% ελληνικό μοσχάρι, λιωμένο cheddar και brioche ψημένο καθημερινά — στην καρδιά του Χολαργού. Dine in, delivery & κρατήσεις." />
+  <meta name="theme-color" content="#5E1619" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="F* Smashing — Smash Burgers στον Χολαργό" />
+  <meta property="og:description" content="Χειροποίητα smash burgers, smashed όπως πρέπει. Χολαργός, Αθήνα." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/logo-emblem.svg" />
+  <meta property="og:locale" content="el_GR" />
+
+  <link rel="icon" type="image/svg+xml" href="assets/logo-emblem.svg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=GFS+Didot:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Shared barbed-wire pattern (for section dividers) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <pattern id="bw" patternUnits="userSpaceOnUse" width="48" height="30">
+        <g fill="none" stroke="#ffffff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M0,13 Q24,17 48,13"/>
+          <path d="M0,17 Q24,13 48,17"/>
+          <path d="M15,22 L23,8 M20,22 L28,8 M25,22 L33,8"/>
+        </g>
+      </pattern>
+    </defs>
+  </svg>
+
+  <!-- Preloader -->
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <img class="preloader__mark" src="assets/logo-mark.svg" alt="" width="120" height="120" />
+  </div>
+
+  <!-- Skip link -->
+  <a href="#menu" class="btn" style="position:absolute;left:-9999px;top:0;z-index:300" onfocus="this.style.left='12px';this.style.top='12px'" onblur="this.style.left='-9999px'">Μετάβαση στο μενού</a>
+
+  <!-- Navbar -->
+  <header class="nav" id="nav">
+    <a href="#hero" class="nav__brand" aria-label="F* Smashing — Αρχική">
+      <img src="assets/logo-mark.svg" alt="Λογότυπο F* Smashing" width="42" height="42" />
+      <span class="nav__name">F* Smashing<small>ΧΟΛΑΡΓΟΣ</small></span>
+    </a>
+
+    <nav class="nav__links" aria-label="Κύρια πλοήγηση">
+      <a href="#menu">Menu</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#reserve">Κρατήσεις</a>
+      <a href="#contact">Επικοινωνία</a>
+    </nav>
+
+    <div class="nav__actions">
+      <a href="#delivery" class="btn nav__cta">Delivery</a>
+      <button class="nav__burger" id="burger" aria-label="Άνοιγμα μενού" aria-expanded="false" aria-controls="drawer">
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile drawer -->
+  <nav class="drawer" id="drawer" aria-label="Πλοήγηση κινητού">
+    <a href="#menu">Menu</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#reserve">Κρατήσεις</a>
+    <a href="#contact">Επικοινωνία</a>
+    <a href="#delivery" class="btn">Παράγγειλε τώρα</a>
+  </nav>
+
+  <main id="main">
+
+    <!-- Hero: scroll-driven barbed-wire reveal -->
+    <section class="hero" id="hero">
+      <div class="hero__stage" id="heroStage">
+        <div class="hero__bg"></div>
+        <div class="hero__topshade" aria-hidden="true"></div>
+        <svg class="hero__wire" id="heroWire" preserveAspectRatio="none" aria-hidden="true">
+          <path id="wireB" fill="none" stroke="#ffffff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path id="wireA" fill="none" stroke="#ffffff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path id="wireBarbs" fill="none" stroke="#ffffff" stroke-width="2.8" stroke-linecap="round"/>
+        </svg>
+        <h1 class="hero__logo" id="heroLogo">
+          <span class="sr-only">F* Smashing — smash burgers στον Χολαργό</span>
+          <span class="l-f" aria-hidden="true">F</span><span class="hero-rev l-star" aria-hidden="true">*</span><span class="l-gap" aria-hidden="true"></span><span class="l-s" aria-hidden="true">S</span><span class="l-rest" aria-hidden="true"><span class="hero-rev">m</span><span class="hero-rev">a</span><span class="hero-rev">s</span><span class="hero-rev">h</span><span class="hero-rev">i</span><span class="hero-rev">n</span><span class="hero-rev">g</span></span>
+        </h1>
+        <p class="hero__tag" id="heroTag" aria-hidden="true">Smash burgers στον Χολαργό</p>
+        <span class="hero__cue" id="heroCue" aria-hidden="true">scroll</span>
+      </div>
+    </section>
+
+    <!-- Menu -->
+    <section class="section menu" id="menu">
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="eyebrow" style="justify-content:center">Το Μενού μας</span>
+          <h2 class="section-title">Διάλεξε <span id="menuArt">το</span> <span class="hl" id="menuWord">smash</span> σου</h2>
+          <p class="lead">Burgers, chicken, wings, sandos &amp; πολλά ακόμα — όλα φτιάχνονται με την παραγγελία.</p>
+        </div>
+
+        <div class="menu__tabs reveal" role="tablist" aria-label="Κατηγορίες μενού">
+          <button class="menu__tab active" role="tab" aria-selected="true" data-panel="burgers">Burgers</button>
+          <button class="menu__tab" role="tab" aria-selected="false" data-panel="chicken">Chicken</button>
+          <button class="menu__tab" role="tab" aria-selected="false" data-panel="wings">Wings</button>
+          <button class="menu__tab" role="tab" aria-selected="false" data-panel="sandos">Sandos</button>
+          <button class="menu__tab" role="tab" aria-selected="false" data-panel="sides">Sides &amp; Balls</button>
+          <button class="menu__tab" role="tab" aria-selected="false" data-panel="salads">Σαλάτες</button>
+          <button class="menu__tab" role="tab" aria-selected="false" data-panel="dips">Dips</button>
+        </div>
+
+        <!-- Burgers -->
+        <div class="menu__panel active" id="panel-burgers" role="tabpanel">
+          <div class="menu__list">
+            <div class="menu-item"><div><div class="menu-item__head"><span class="menu-item__name">The G. burger</span></div><div class="menu-item__desc">Potato bun, 2 smashed dry-aged μοσχαρίσια (100gr), American cheese, αγγουράκι, pickles, ψιλοκομμένο iceberg &amp; F* sauce. Με πατάτες.</div></div><span class="menu-item__price">από 12,00€</span></div>
+            <div class="menu-item"><div><div class="menu-item__head"><span class="menu-item__name">The O.G. burger</span></div><div class="menu-item__desc">Potato bun, 2 smashed dry-aged μοσχαρίσια (100gr), τριπλό American cheese, pickles, iceberg &amp; F* sauce. Με πατάτες.</div></div><span class="menu-item__price">από 13,00€</span></div>
+            <div class="menu-item"><div><div class="menu-item__head"><span class="menu-item__name">G.O.A.T. burger</span></div><div class="menu-item__desc">Potato bun, 2 smashed dry-aged μοσχαρίσια (100gr), American cheese, bacon, iceberg &amp; F* sauce. Με πατάτες.</div></div><span class="menu-item__price">από 13,00€</span></div>
+            <div class="menu-item"><div><div class="menu-item__head"><span class="menu-item__name">Secret burger</span><span class="menu-item__tag">Signature</span></div><div class="menu-item__desc">Martin's potato bun, smashed dry-aged μοσχαρίσιο (130gr), διπλό American cheese, bacon, iceberg &amp; special sauce. Με πατάτες.</div></div><span class="menu-item__price">από 13,00€</span></div>
+            <div class="menu-item"><div><div class="menu-item__head"><span class="menu-item__name">Yet another cheeseburger</span></div><div class="menu-item__desc">Martin's potato bun, 2 smashed dry-aged μοσχαρίσια, πολλαπλό American cheese, F* sauce, pickles, ντομάτα &amp; iceberg. Με πατάτες.</div></div><span class="menu-item__price">από 13,00€</span></div>
+            <div class="menu-item"><div><div class="menu-item__head"><span class="menu-item__name">Truffle smash burger</span></div><div class="menu-item__desc">Potato bun, 2 smashed dry-aged μοσχαρίσια (130gr), raclette &amp; truffle mayo. Με πατάτες.</div></div><span class="menu-item__price">από 13,50€</span></div>
+            <div class="menu-item"><div><div class="menu-item__head"><span class="menu-item__name">Jalapeño smash burger</span><span class="menu-item__tag hot">Καυτερό</span></div><div class="menu-item__desc">Martin's potato bun, 2 smashed dry-aged μοσχαρίσια, διπλό American cheese, jalapeño, καραμελωμένα κρεμμύδια &amp; bacon-onion sauce. Με πατάτες.</div></div><span class="menu-item__price">από 13,50€</span></div>
+            <div class="menu-item"><div><div class="menu-item__head"><span class="menu-item__name">Kimchi smash burger</span></div><div class="menu-item__desc">Martin's potato bun, 2 smashed dry-aged μοσχαρίσια, διπλό American cheese, kimchi, kimchi μαγιονέζα, iceberg &amp; F* sauce. Με πατάτες.</div></div><span class="menu-item__price">από 13,50€</span></div>
+          </div>
+        </div>
+
+        <!-- Chicken -->
+        <div class="menu__panel" id="panel-chicken" role="tabpanel" hidden>
+          <div class="menu__list">
+            <div class="menu-item"><div><div class="menu-item__head"><span class="menu-item__name">Peck peck burger</span></div><div class="menu-item__desc">Potato bun, τραγανό φιλέτο κοτόπουλο, cheese, ψιλοκομμένο iceberg &amp; F* sauce. Με πατάτες.</div></div><span class="menu-item__price">11,50€</span></div>
+            <div class="menu-item"><div><div class="menu-item__head"><span class="menu-item__name">Buffalo burger</span><span class="menu-item__tag hot">Καυτερό</span></div><div class="menu-item__desc">Potato bun, τραγανό φιλέτο κοτόπουλο, blue cheese, Frank's hot sauce, iceberg &amp; buffalo-ranch sauce. Με πατάτες.</div></div><span class="menu-item__price">12,50€</span></div>
+            <div class="menu-item"><div><div class="menu-item__head"><span class="menu-item__name">Korean burger</span></div><div class="menu-item__desc">Potato bun, τραγανό φιλέτο κοτόπουλο, Asian coleslaw &amp; Korean sauce. Με πατάτες.</div></div><span class="menu-item__price">12,50€</span></div>
+            <div class="menu-item"><div><div class="menu-item__head"><span class="menu-item__name">La raclette truffle burger</span></div><div class="menu-item__desc">Potato bun, τραγανό φιλέτο κοτόπουλο, raclette, truffle mayo &amp; μαρμελάδα μανιταριών. Με πατάτες.</div></div><span class="menu-item__price">13,50€</span></div>
+          </div>
+        </div>
+
+        <!-- Wings -->
+        <div class="menu__panel" id="panel-wings" role="tabpanel" hidden>
+          <div class="menu__list">
+            <div class="menu-item"><div><div class="menu-item__head"><span class="menu-item__name">Buffalo wings</span><span class="menu-item__tag hot">Καυτερό</span></div><div class="menu-item__desc">Φτερούγες κοτόπουλο με Frank's buffalo sauce &amp; blue cheese.</div></div><span class="menu-item__price">7,50€</span></div>
+            <div class="menu-item"><div><div class="menu-item__head"><span class="menu-item__name">Korean wings</span></div><div class="menu-item__desc">Φτερούγες κοτόπουλο με Korean (gochujang) sauce.</div></div><span class="menu-item__price">7,30€</span></div>
+            <div class="menu-item"><div><div class="menu-item__head"><span class="menu-item__name">Tokyo wings</span></div><div class="menu-item__desc">Φτερούγες κοτόπουλο με Tokyo teriyaki sauce.</div></div><span class="menu-item__price">7,50€</span></div>
+            <div class="menu-item"><div><div class="menu-item__head"><span class="menu-item__name">Truffle wings</span></div><div class="menu-item__desc">Φτερούγες κοτόπουλο με truffle.</div></div><span class="menu-item__price">8,30€</span></div>
+          </div>
+        </div>
+
+        <!-- Sandos -->
+        <div class="menu__panel" id="panel-sandos" role="tabpanel" hidden>
+          <div class="menu__list">
+            <div class="menu-item"><div><div class="menu-item__head"><span class="menu-item__name">Sando pulled beef</span></div><div class="menu-item__desc">Sando με σιγομαγειρεμένο pulled beef.</div></div><span class="menu-item__price">12,00€</span></div>
+            <div class="menu-item"><div><div class="menu-item__head"><span class="menu-item__name">Sando truffle chicken katsu</span></div><div class="menu-item__desc">Sando με chicken katsu &amp; truffle.</div></div><span class="menu-item__price">12,50€</span></div>
+          </div>
+        </div>
+
+        <!-- Sides & Balls -->
+        <div class="menu__panel" id="panel-sides" role="tabpanel" hidden>
+          <div class="menu__list">
+            <div class="menu-item"><div><div class="menu-item__head"><span class="menu-item__name">Classic fries</span></div><div class="menu-item__desc">Πατάτες τηγανητές.</div></div><span class="menu-item__price">4,00€</span></div>
+            <div class="menu-item"><div><div class="menu-item__head"><span class="menu-item__name">Angry fries</span><span class="menu-item__tag hot">Καυτερό</span></div><div class="menu-item__desc">Πικάντικες πατάτες.</div></div><span class="menu-item__price">4,50€</span></div>
+            <div class="menu-item"><div><div class="menu-item__head"><span class="menu-item__name">Truffle fries</span></div><div class="menu-item__desc">Πατάτες με truffle.</div></div><span class="menu-item__price">4,50€</span></div>
+            <div class="menu-item"><div><div class="menu-item__head"><span class="menu-item__name">Chicken bites</span></div><div class="menu-item__desc">Τραγανά κομματάκια κοτόπουλο.</div></div><span class="menu-item__price">από 6,00€</span></div>
+            <div class="menu-item"><div><div class="menu-item__head"><span class="menu-item__name">Kimchi mac &amp; cheese balls</span></div><div class="menu-item__desc">Τραγανά μπαλάκια mac &amp; cheese με kimchi.</div></div><span class="menu-item__price">6,50€</span></div>
+            <div class="menu-item"><div><div class="menu-item__head"><span class="menu-item__name">Cheeseburger balls</span></div><div class="menu-item__desc">Τραγανά μπαλάκια cheeseburger.</div></div><span class="menu-item__price">6,50€</span></div>
+          </div>
+        </div>
+
+        <!-- Σαλάτες -->
+        <div class="menu__panel" id="panel-salads" role="tabpanel" hidden>
+          <div class="menu__list">
+            <div class="menu-item"><div><div class="menu-item__head"><span class="menu-item__name">Chicken Caesar's</span></div><div class="menu-item__desc">Σαλάτα Caesar με κοτόπουλο.</div></div><span class="menu-item__price">10,50€</span></div>
+            <div class="menu-item"><div><div class="menu-item__head"><span class="menu-item__name">Red cabbage slaw</span></div><div class="menu-item__desc">Σαλάτα με κόκκινο λάχανο.</div></div><span class="menu-item__price">6,50€</span></div>
+            <div class="menu-item"><div><div class="menu-item__head"><span class="menu-item__name">Asian coleslaw</span></div><div class="menu-item__desc">Ασιατικού τύπου coleslaw.</div></div><span class="menu-item__price">6,50€</span></div>
+          </div>
+        </div>
+
+        <!-- Dips -->
+        <div class="menu__panel" id="panel-dips" role="tabpanel" hidden>
+          <div class="menu__list">
+            <div class="menu-item"><div><div class="menu-item__head"><span class="menu-item__name">F* sauce</span><span class="menu-item__tag">Signature</span></div><div class="menu-item__desc">Η μυστική μας σος.</div></div><span class="menu-item__price">1,00€</span></div>
+            <div class="menu-item"><div><div class="menu-item__head"><span class="menu-item__name">Frank's RedHot Buffalo sauce</span><span class="menu-item__tag hot">Καυτερό</span></div><div class="menu-item__desc">Πικάντικη buffalo σος.</div></div><span class="menu-item__price">1,00€</span></div>
+            <div class="menu-item"><div><div class="menu-item__head"><span class="menu-item__name">Blue cheese sauce</span></div><div class="menu-item__desc">Σος με μπλε τυρί.</div></div><span class="menu-item__price">1,00€</span></div>
+            <div class="menu-item"><div><div class="menu-item__head"><span class="menu-item__name">Truffle mayo</span></div><div class="menu-item__desc">Μαγιονέζα με τρούφα.</div></div><span class="menu-item__price">1,00€</span></div>
+            <div class="menu-item"><div><div class="menu-item__head"><span class="menu-item__name">Μαγιονέζα σκόρδου</span></div><div class="menu-item__desc">Σος μαγιονέζας με σκόρδο.</div></div><span class="menu-item__price">1,00€</span></div>
+            <div class="menu-item"><div><div class="menu-item__head"><span class="menu-item__name">Ketchup</span></div><div class="menu-item__desc">Κλασικό ketchup.</div></div><span class="menu-item__price">1,00€</span></div>
+          </div>
+        </div>
+
+        <p class="menu__note">Οι τιμές «από» αφορούν τη βασική επιλογή. Όλες οι τιμές σε ευρώ (€) &amp; περιλαμβάνουν ΦΠΑ. Για αλλεργιογόνα ρωτήστε το προσωπικό μας. Πλήρες μενού &amp; παραλλαγές στις εφαρμογές delivery.</p>
+      </div>
+    </section>
+
+    <div class="wire-edge" aria-hidden="true"><svg class="wire-edge__svg" preserveAspectRatio="none"><rect width="100%" height="100%" fill="url(#bw)"/></svg></div>
+
+    <!-- Stats -->
+    <section class="section stats" data-glow>
+      <div class="container stats__grid">
+        <div class="reveal"><div class="stat__num" data-target="6">0</div><div class="stat__label">Χρόνια στη γειτονιά</div></div>
+        <div class="reveal" data-delay="1"><div class="stat__num" data-target="250"><span class="val">0</span><span class="suffix">K+</span></div><div class="stat__label">Burgers σερβιρισμένα</div></div>
+        <div class="reveal" data-delay="2"><div class="stat__num" data-target="12">0</div><div class="stat__label">Είδη burger</div></div>
+        <div class="reveal" data-delay="3"><div class="stat__num" data-target="4.9" data-decimals="1"><span class="val">0</span><span class="suffix">★</span></div><div class="stat__label">Βαθμολογία πελατών</div></div>
+      </div>
+    </section>
+
+    <div class="wire-edge" aria-hidden="true"><svg class="wire-edge__svg" preserveAspectRatio="none"><rect width="100%" height="100%" fill="url(#bw)"/></svg></div>
+
+    <!-- Signature -->
+    <section class="section signature" data-glow>
+      <div class="container signature__grid">
+        <div class="signature__media reveal">
+          <div class="signature__ring" aria-hidden="true"></div>
+          <img class="signature__burger" data-label="The G.O.A.T. burger" src="assets/burger.png" alt="The G.O.A.T. burger — το signature burger μας" loading="lazy" decoding="async" width="1000" height="750" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=900&q=80'" />
+        </div>
+        <div class="signature__content">
+          <span class="eyebrow on-dark">Το αστέρι μας</span>
+          <h2 class="section-title" style="color:var(--cream)">The <span class="ember">G.O.A.T.</span> burger</h2>
+          <p class="lead reveal">Το burger που μας έκανε όνομα. Διπλό smashed dry-aged μοσχάρι (100gr), American cheese, τραγανό bacon, ψιλοκομμένο iceberg και η μυστική F* sauce — όλα σε potato bun.</p>
+          <ul class="ingredients reveal" data-delay="1">
+            <li>Διπλό μοσχάρι 100gr</li><li>American cheese</li><li>Bacon</li><li>Iceberg</li><li>F* sauce</li><li>Potato bun</li>
+          </ul>
+          <div class="signature__price reveal" data-delay="2"><b>από 13,00€</b><span class="lead" style="margin:0">Μόνο στο κατάστημα &amp; delivery</span></div>
+          <a href="#delivery" class="btn reveal" data-delay="2">Παράγγειλε τώρα
+            <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="section gallery" id="gallery">
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="eyebrow" style="justify-content:center">Από την κουζίνα μας</span>
+          <h2 class="section-title">Δες τι σε <span class="hl">περιμένει</span></h2>
+          <p class="lead">Σύρε τις κάρτες, πάτησε για μεγέθυνση ή διάλεξε από τις τελείες.</p>
+        </div>
+        <div class="stack reveal" id="stack" aria-roledescription="carousel" aria-label="Φωτογραφίες φαγητού F* Smashing">
+          <div class="stack__glow" aria-hidden="true"></div>
+          <div class="stack__counter" aria-hidden="true">
+            <span class="stack__cur" id="stackCur">01</span>
+            <span class="stack__line"></span>
+            <span class="stack__total" id="stackTotal">05</span>
+          </div>
+          <div class="stack__viewport" id="stackViewport" tabindex="0" role="group" aria-label="Στοίβα φωτογραφιών — σύρε ή χρησιμοποίησε τα βελάκια του πληκτρολογίου"></div>
+          <div class="stack__dots" id="stackDots" role="tablist" aria-label="Επιλογή φωτογραφίας"></div>
+          <div class="stack__hint" aria-hidden="true">
+            <svg class="a1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7-7 7 7"/></svg>
+            <span>Σύρε ή πάτα</span>
+            <svg class="a2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="wire-edge" aria-hidden="true"><svg class="wire-edge__svg" preserveAspectRatio="none"><rect width="100%" height="100%" fill="url(#bw)"/></svg></div>
+
+    <!-- Delivery -->
+    <section class="section delivery" id="delivery" data-glow>
+      <div class="container">
+        <div class="section-head center reveal" style="margin-inline:auto">
+          <span class="eyebrow on-dark" style="justify-content:center">Delivery &amp; Takeaway</span>
+          <h2 class="section-title" style="color:#fff">Φέρ' το σπίτι σου</h2>
+          <p class="lead" style="color:#fff">Παράγγειλε από την αγαπημένη σου εφαρμογή — ζεστό και τραγανό στην πόρτα σου σε ~25′.</p>
+        </div>
+        <div class="delivery__cards">
+          <a class="delivery__card reveal" href="#" target="_blank" rel="noopener" aria-label="Παραγγελία μέσω efood">
+            <span class="dcard" style="--bc:#E2001A;--bf:#ffffff;--lbg:#ffffff">
+              <span class="dcard__spot" aria-hidden="true"></span>
+              <span class="delivery__logo"><img class="dlogo-img" src="assets/logos/efood.png" alt="efood" onerror="this.closest('.delivery__logo').classList.add('noimg')" /><span class="dlogo-txt">efood</span></span>
+              <span class="dcard__p">Γρήγορη παράδοση σε όλο τον Χολαργό &amp; γύρω περιοχές.</span>
+              <span class="dcard__go">Παράγγειλε <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </span>
+          </a>
+          <a class="delivery__card reveal" data-delay="1" href="#" target="_blank" rel="noopener" aria-label="Παραγγελία μέσω Wolt">
+            <span class="dcard" style="--bc:#00C1E8;--bf:#06323b;--lbg:#00C1E8">
+              <span class="dcard__spot" aria-hidden="true"></span>
+              <span class="delivery__logo"><img class="dlogo-img" src="assets/logos/wolt.png" alt="Wolt" onerror="this.closest('.delivery__logo').classList.add('noimg')" /><span class="dlogo-txt">Wolt</span></span>
+              <span class="dcard__p">Live tracking της παραγγελίας σου, από την πλάκα στο πιάτο.</span>
+              <span class="dcard__go">Παράγγειλε <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </span>
+          </a>
+          <a class="delivery__card reveal" data-delay="2" href="#" target="_blank" rel="noopener" aria-label="Παραγγελία μέσω BOX">
+            <span class="dcard" style="--bc:#FF7A00;--bf:#3a1d00;--lbg:#FF7A00">
+              <span class="dcard__spot" aria-hidden="true"></span>
+              <span class="delivery__logo"><img class="dlogo-img" src="assets/logos/box.png" alt="BOX" onerror="this.closest('.delivery__logo').classList.add('noimg')" /><span class="dlogo-txt">BOX</span></span>
+              <span class="dcard__p">Πλήρωσε εύκολα, μάζεψε πόντους σε κάθε smash.</span>
+              <span class="dcard__go">Παράγγειλε <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <div class="wire-edge" aria-hidden="true"><svg class="wire-edge__svg" preserveAspectRatio="none"><rect width="100%" height="100%" fill="url(#bw)"/></svg></div>
+
+    <!-- Reservation + Contact -->
+    <section class="section reserve" id="reserve">
+      <div class="container reserve__grid">
+        <!-- Reservation form -->
+        <div class="reserve__form reveal">
+          <span class="eyebrow">Κρατήσεις</span>
+          <h2 class="section-title">Κράτησε το <span class="hl">τραπέζι</span> σου</h2>
+          <p class="lead" style="margin-bottom:28px">Συμπλήρωσε τα στοιχεία σου και θα σε καλέσουμε για επιβεβαίωση.</p>
+
+          <form class="card-panel" id="reserveForm" novalidate>
+            <div class="form-row">
+              <div class="field">
+                <label for="r-name">Όνομα</label>
+                <input id="r-name" name="name" type="text" autocomplete="name" required />
+                <span class="err">Συμπλήρωσε το όνομά σου.</span>
+              </div>
+              <div class="field">
+                <label for="r-phone">Τηλέφωνο</label>
+                <input id="r-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required pattern="[0-9 +]{10,}" />
+                <span class="err">Δώσε ένα έγκυρο τηλέφωνο.</span>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label for="r-date">Ημερομηνία</label>
+                <input id="r-date" name="date" type="date" required />
+                <span class="err">Διάλεξε ημερομηνία.</span>
+              </div>
+              <div class="field">
+                <label for="r-time">Ώρα</label>
+                <input id="r-time" name="time" type="time" min="13:00" max="01:30" required />
+                <span class="err">Διάλεξε ώρα.</span>
+              </div>
+            </div>
+            <div class="field">
+              <label for="r-people">Άτομα</label>
+              <select id="r-people" name="people" required>
+                <option value="">Επίλεξε…</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option>
+                <option>5</option><option>6</option><option>7</option><option>8+</option>
+              </select>
+              <span class="err">Πόσα άτομα;</span>
+            </div>
+            <div class="field">
+              <label for="r-msg">Σχόλια (προαιρετικά)</label>
+              <textarea id="r-msg" name="message" placeholder="π.χ. τραπέζι σε εξωτερικό χώρο, γενέθλια…"></textarea>
+            </div>
+            <button type="submit" class="btn" style="width:100%">Στείλε αίτημα κράτησης</button>
+            <p class="form-msg" id="formMsg">Ευχαριστούμε! Λάβαμε το αίτημά σου — θα σε καλέσουμε σύντομα για επιβεβαίωση.</p>
+          </form>
+        </div>
+
+        <!-- Contact + hours + map -->
+        <div class="reserve__contact reveal" data-delay="1" id="contact">
+          <span class="eyebrow">Επικοινωνία</span>
+          <h2 class="section-title">Πού θα μας <span class="hl">βρεις</span></h2>
+
+          <div class="contact-list" style="margin-top:24px">
+            <div class="contact-item">
+              <span class="ic-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+              <div><h4>Διεύθυνση</h4><p><a href="https://www.google.com/maps/search/?api=1&query=Χολαργός+Αθήνα" target="_blank" rel="noopener">Λεωφ. Μεσογείων 200, Χολαργός 155 61</a></p></div>
+            </div>
+            <div class="contact-item">
+              <span class="ic-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span>
+              <div><h4>Τηλέφωνο</h4><p><a href="tel:+302106500000">210 65 00 000</a></p></div>
+            </div>
+            <div class="contact-item">
+              <span class="ic-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg></span>
+              <div><h4>Email</h4><p><a href="mailto:hello@fsmashing.gr">hello@fsmashing.gr</a></p></div>
+            </div>
+            <div class="contact-item">
+              <span class="ic-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+              <div style="flex:1">
+                <h4>Ωράριο</h4>
+                <ul class="hours-list" id="hours">
+                  <li data-day="1,2,3,4"><span>Δευτέρα – Πέμπτη</span><span>13:00 – 00:00</span></li>
+                  <li data-day="5"><span>Παρασκευή</span><span>13:00 – 01:30</span></li>
+                  <li data-day="6"><span>Σάββατο</span><span>13:00 – 01:30</span></li>
+                  <li data-day="0"><span>Κυριακή</span><span>13:00 – 00:00</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="map-wrap">
+            <iframe
+              src="https://www.google.com/maps?q=%CE%A7%CE%BF%CE%BB%CE%B1%CF%81%CE%B3%CF%8C%CF%82%20%CE%91%CE%B8%CE%AE%CE%BD%CE%B1&output=embed"
+              title="Χάρτης — F* Smashing, Χολαργός" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" data-glow>
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__brand">
+            <img src="assets/logo-mark.svg" alt="Λογότυπο F* Smashing" width="56" height="56" />
+            <span class="nav__name">F* Smashing<small>ΧΟΛΑΡΓΟΣ</small></span>
+          </div>
+          <p class="about">Χειροποίητα smash burgers με 100% ελληνικό μοσχάρι, στην καρδιά του Χολαργού. Smashed όπως πρέπει — χωρίς συμβιβασμούς.</p>
+          <div class="socials">
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.5 2.9h-2.3v7A10 10 0 0 0 22 12z"/></svg></a>
+            <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 3c.3 2.1 1.5 3.6 3.5 3.9V9c-1.3 0-2.5-.3-3.5-.9v6.4c0 3.3-2.7 5.5-5.6 5.5A5.5 5.5 0 0 1 5.4 14a5.5 5.5 0 0 1 6.6-5.4v2.4a3 3 0 1 0 2.1 2.9V3h2.4z"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <h4>Πλοήγηση</h4>
+          <ul>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#reserve">Κρατήσεις</a></li>
+            <li><a href="#delivery">Delivery</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Επικοινωνία</h4>
+          <ul>
+            <li><a href="https://www.google.com/maps/search/?api=1&query=Χολαργός+Αθήνα" target="_blank" rel="noopener">Λεωφ. Μεσογείων 200, Χολαργός</a></li>
+            <li><a href="tel:+302106500000">210 65 00 000</a></li>
+            <li><a href="mailto:hello@fsmashing.gr">hello@fsmashing.gr</a></li>
+            <li>Δευτ–Πέμ 13:00–00:00</li>
+            <li>Παρ–Σάβ 13:00–01:30</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© <span id="year">2026</span> F* Smashing. Με μεράκι στον Χολαργό.</span>
+        <span>Smashed to perfection.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Προβολή φωτογραφίας">
+    <button class="lightbox__close" id="lbClose" aria-label="Κλείσιμο"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    <div class="lightbox__nav">
+      <button class="lb-prev" aria-label="Προηγούμενη"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <button class="lb-next" aria-label="Επόμενη"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+    </div>
+    <img id="lbImg" src="" alt="" />
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

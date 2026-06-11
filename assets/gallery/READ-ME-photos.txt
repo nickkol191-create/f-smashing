@@ -1,0 +1,22 @@
+ΦΩΤΟΓΡΑΦΙΕΣ GALLERY — F* Smashing
+=================================
+
+Βάλε εδώ τις 5 φωτογραφίες σου με ΑΚΡΙΒΩΣ αυτά τα ονόματα
+(η σειρά είναι η σειρά εμφάνισης στη στοίβα):
+
+  01.jpg  ->  Signature cocktail (το cocktail στο χέρι)
+  02.jpg  ->  Crispy chicken sandwich με coleslaw
+  03.jpg  ->  Stack από sandwiches (η στοίβα)
+  04.jpg  ->  Τραγανές κροκέτες με τυρί
+  05.jpg  ->  Chicken tenders με πατάτες & dips (Silk)
+
+Tips:
+- Κάθετες (portrait) φωτό δείχνουν τέλεια — αναλογία περίπου 2:3 (π.χ. 800x1200).
+- .jpg ή .jpeg. Αν θες .png/.webp, άλλαξε τις καταλήξεις στο script.js
+  (πίνακας galleryImages, πεδίο "file").
+- Μέχρι να τις προσθέσεις, εμφανίζονται προσωρινές stock φωτό αυτόματα.
+
+----
+
+GALLERY PHOTOS — drop your 5 images here named 01.jpg … 05.jpg
+(order = order shown in the stack). Until then, stock placeholders show automatically.

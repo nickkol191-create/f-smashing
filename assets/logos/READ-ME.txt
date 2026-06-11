@@ -1,0 +1,5 @@
+Save the 3 delivery logos here (transparent background works best):
+  efood.svg   (or efood.png)
+  wolt.svg
+  box.svg
+Until then, styled wordmark fallbacks show automatically.
